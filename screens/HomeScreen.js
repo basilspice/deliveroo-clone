@@ -1,8 +1,21 @@
-import { View, Text, Image } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native";
-import { UserIcon, ChevronDownIcon, SearchIcon, AdjustmentsIcon } from "react-native-heroicons/outline";
+import {
+  UserIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+  AdjustmentsVerticalIcon,
+} from "react-native-heroicons/outline";
+import Categories from "../components/Categories";
+import FeaturedRow from "../components/FeaturedRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -13,23 +26,58 @@ const HomeScreen = () => {
     });
   }, []);
   return (
-    <SafeAreaView>
-      <Text className="text-red-500">
-        <View className="flex-row pb-3 items-center mx-4 space-x-2">
-          <Image
-            source={{
-              uri: "https://links.papareact.com/wru",
-            }}
-            className="h-7 w-7 bg-gray-300 p-4 rounded-full"
-          />
-          <View>
-            <Text className="font-bold text-gray-400 text-xs">Deliver Now!</Text>
-            <Text className="font-bold text-xl">Current Location
-            <ChevronDownIcon size={20} color="#00ccbb" />
-            </Text>
-          </View>
+    <SafeAreaView className="pt-5 bg-white ">
+      {/* Header */}
+      <View className="flex-row pb-3 items-center mx-4 space-x-2">
+        <Image
+          source={{ uri: "https://links.papareact.com/wru" }}
+          className="h-7 w-7 bg-gray-300 rounded-full"
+        />
+
+        <View className="flex-grow">
+          <Text className="font-bold text-gray-400 text-xs">Deliver Now!</Text>
+          <Text className="font-bold text-xl">
+            Current Location
+            <ChevronDownIcon size={20} color="#00CCBB" />
+          </Text>
         </View>
-      </Text>
+        <UserIcon size={35} color="#00CCBB" />
+      </View>
+
+      {/* Search */}
+      <View className="flex-row items-center space-x-2 pb-2 mx-4">
+        <View className="flex-row flex-grow space-x-2 bg-gray-200 p-3">
+          <MagnifyingGlassIcon size={20} color="gray" />
+          <TextInput
+            placeholder="Restaurants and cuisines"
+            keyboardType="default"
+          />
+        </View>
+        <AdjustmentsVerticalIcon size={20} color="#00CCBB" />
+      </View>
+
+      {/* Body */}
+      <ScrollView>
+        {/* Categories */}
+        <Categories />
+        {/* {Featured Rows} */}
+        <FeaturedRow
+          id="123"
+          title="Featured"
+          description="Paid placements for our partners"
+        />
+        <FeaturedRow
+          id="1234"
+          title="Tasty Discounts"
+          description="Everyone's been enjoying these juicy discounts"
+        />
+
+        <FeaturedRow
+          id="12345"
+          title="Featured"
+          description="Why not support your local restaurant tonight!"
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
