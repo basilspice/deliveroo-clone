@@ -11,55 +11,62 @@ const FeaturedRow = ({ title, description, id }) => {
         <ArrowRightIcon color="#00CCBB" />
       </View>
       <Text className="text-xs text-gray-500 px-4">{description}</Text>
-      <ScrollView horizontal contentContainerStyle={{
-        paddingHorizontal: 15,
-      }}
-      showsHorizontalScrollIndicator={false}
-      className="pt-4">
+      <ScrollView
+        horizontal
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+        }}
+        showsHorizontalScrollIndicator={false}
+        className="pt-4"
+      >
         <RestaurantCard
-         id={123}
-         imgUrl="https://links.papareact.com/gn7"
-         title="Yo!, Sushi"
-         rating={4.5}
-         genre="Japanese"
-         address="123 Main ST"
-         short_description="THis is a test description HAI"
-         dishes={[]}
-         long={20}
-         lat={0} />
-           <RestaurantCard
-         id={123}
-         imgUrl="https://links.papareact.com/gn7"
-         title="Yo!, Sushi"
-         rating={4.5}
-         genre="Japanese"
-         address="123 Main ST"
-         short_description="THis is a test description HAI"
-         dishes={[]}
-         long={20}
-         lat={0} />
-           <RestaurantCard
-         id={123}
-         imgUrl="https://links.papareact.com/gn7"
-         title="Yo!, Sushi"
-         rating={4.5}
-         genre="Japanese"
-         address="123 Main ST"
-         short_description="THis is a test description HAI"
-         dishes={[]}
-         long={20}
-         lat={0} />
-           <RestaurantCard
-         id={123}
-         imgUrl="https://links.papareact.com/gn7"
-         title="Yo!, Sushi"
-         rating={4.5}
-         genre="Japanese"
-         address="123 Main ST"
-         short_description="THis is a test description HAI"
-         dishes={[]}
-         long={20}
-         lat={0} />
+          id={123}
+          imgUrl="https://links.papareact.com/gn7"
+          title="Yo!, Sushi"
+          rating={4.5}
+          genre="Japanese"
+          address="123 Main ST"
+          short_description="THis is a test description HAI"
+          dishes={[]}
+          long={20}
+          lat={0}
+        />
+        <RestaurantCard
+          id={123}
+          imgUrl="https://links.papareact.com/gn7"
+          title="Yo!, Sushi"
+          rating={4.5}
+          genre="Japanese"
+          address="123 Main ST"
+          short_description="THis is a test description HAI"
+          dishes={[]}
+          long={20}
+          lat={0}
+        />
+        <RestaurantCard
+          id={123}
+          imgUrl="https://links.papareact.com/gn7"
+          title="Yo!, Sushi"
+          rating={4.5}
+          genre="Japanese"
+          address="123 Main ST"
+          short_description="THis is a test description HAI"
+          dishes={[]}
+          long={20}
+          lat={0}
+        />
+        <RestaurantCard
+          id={123}
+          imgUrl="https://links.papareact.com/gn7"
+          title="Yo!, Sushi"
+          rating={4.5}
+          genre="Japanese"
+          address="123 Main ST"
+          short_description="THis is a test description HAI"
+          dishes={[]}
+          long={20}
+          lat={0}
+        />
       </ScrollView>
     </View>
   );
