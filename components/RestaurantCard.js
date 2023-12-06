@@ -4,6 +4,7 @@ import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { urlFor } from "../sanity";
 import { useNavigation } from "@react-navigation/native";
+import DishRow from "./DishRow";
 const RestaurantCard = ({
   id,
   imgUrl,
@@ -62,7 +63,7 @@ const RestaurantCard = ({
           <MapPinIcon size={22} color="gray" opacity={0.4} />
           <Text className="text-xs text-gray-500">Nearby · {address}</Text>
         </View>
-        <View />
+        
       </View>
     </TouchableOpacity>
   );
