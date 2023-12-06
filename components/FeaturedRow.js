@@ -5,8 +5,7 @@ import RestaurantCard from "./RestaurantCard";
 import sanityClient from "../sanity";
 import { urlFor } from "../sanity";
 
-const FeaturedRow = ({ id,title, description}) => {
-
+const FeaturedRow = ({ id, title, description }) => {
   const [restaurants, setRestaurants] = useState([]);
   useEffect(() => {
     sanityClient
@@ -27,10 +26,8 @@ const FeaturedRow = ({ id,title, description}) => {
       )
       .then((data) => {
         setRestaurants(data?.restaurants);
-
       });
-  }, []);
-
+  }, [id]);
 
   return (
     <View>
@@ -61,7 +58,6 @@ const FeaturedRow = ({ id,title, description}) => {
             lat={restaurant.lat}
           />
         ))}
-      
       </ScrollView>
     </View>
   );

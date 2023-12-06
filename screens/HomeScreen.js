@@ -45,8 +45,6 @@ const HomeScreen = () => {
       });
   }, []);
 
-
-
   return (
     <SafeAreaView className="pt-5 bg-white ">
       {/* Header */}
