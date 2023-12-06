@@ -6,7 +6,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   UserIcon,
@@ -16,15 +16,37 @@ import {
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
+import sanityClient from "../sanity";
+import { SanityClient } from "@sanity/client";
+import CategoryCard from "../components/CategoryCard";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredCategories, setFeaturedCategories] = useState([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, []);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "featured"] {
+  ...,
+  restaurants[]=>{
+    ...,
+    dishes[]->}
+}`
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      });
+  }, []);
+
+
+
   return (
     <SafeAreaView className="pt-5 bg-white ">
       {/* Header */}
@@ -61,22 +83,17 @@ const HomeScreen = () => {
         {/* Categories */}
         <Categories />
         {/* {Featured Rows} */}
-        <FeaturedRow
-          id="123"
-          title="Featured"
-          description="Paid placements for our partners"
-        />
-        <FeaturedRow
-          id="1234"
-          title="Tasty Discounts"
-          description="Everyone's been enjoying these juicy discounts"
-        />
 
-        <FeaturedRow
-          id="12345"
-          title="Featured"
-          description="Why not support your local restaurant tonight!"
-        />
+        {featuredCategories?.map((category, index) => {
+          return (
+            <FeaturedRow
+              key={`${category.id}-${index}`}
+              id={category._id}
+              title={category.name}
+              description={category.short_description}
+            />
+          );
+        })}
       </ScrollView>
     </SafeAreaView>
   );
