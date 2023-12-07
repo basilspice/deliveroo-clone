@@ -10,24 +10,24 @@ import {
   selectBasketItemsWithId,
 } from "../features/basketSlice";
 
-const DishRow = ({ _id, name, description, price, image }) => {
+const DishRow = ({ id, name, description, price, image }) => {
   const [isPressed, setIsPressed] = useState(false);
 
-  const items = useSelector(selectBasketItems);
+  const items = useSelector((state) => selectBasketItemsWithId(state, id));
 
   const dispatch = useDispatch();
 
   const addItemToBasket = () => {
-    dispatch(addToBasket({ _id, name, description, price, image }));
+    dispatch(addToBasket({ id, name, description, price, image }));
   };
 
   const removeItemFromBasket = () => {
     if (!items.length > 0) return;
 
-    dispatch(removeFromBasket({ _id }));
+    dispatch(removeFromBasket({ id }));
   };
 
-console.log(items);
+  console.log(items);
 
   return (
     <>
@@ -73,7 +73,7 @@ console.log(items);
                 size={40}
               />
             </TouchableOpacity>
-            <Text className="">{items?.length}</Text>
+            <Text className="">{items.length}</Text>
             <TouchableOpacity onPress={addItemToBasket}>
               <PlusCircleIcon color="#00CCBB" size={40} />
             </TouchableOpacity>

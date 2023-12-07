@@ -16,7 +16,7 @@ const RestaurantScreen = () => {
 
   const {
     params: {
-      _id,
+      id,
       imgUrl,
       title,
       rating,
@@ -84,8 +84,8 @@ const RestaurantScreen = () => {
 
         {dishes.map((dish) => (
           <DishRow
-            key={dish._id}
-            id={dish._id}
+            key={dish.id}
+            _id={dish.id}
             name={dish.name}
             description={dish.short_description}
             price={dish.price}
