@@ -11,16 +11,16 @@ import {
 import { QuestionMarkCircleIcon } from "react-native-heroicons/outline";
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
-
+import { useDispatch } from "react-redux";
+import { setRestaurant } from "../features/restaurantSlice";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
-
-
+  const dispatch = useDispatch();
 
   const {
     params: {
-      id,
+      _id,
       imgUrl,
       title,
       rating,
@@ -33,7 +33,22 @@ const RestaurantScreen = () => {
     },
   } = useRoute();
 
-
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        _id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        shortDescription,
+        dishes,
+        long,
+        lat,
+      })
+    );
+  }, [dispatch]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -83,7 +98,10 @@ const RestaurantScreen = () => {
             <Text className="text-gray-500 mt-2 pb-4">{shortDescription}</Text>
           </View>
 
-          <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Allergy")}
+            className="flex-row items-center space-x-2 p-4 border-y border-gray-300"
+          >
             <QuestionMarkCircleIcon color="gray" opacity={0.6} size={20} />
             <Text className="pl-2 flex-1 text-sm font-bold">
               Have a food allergy?

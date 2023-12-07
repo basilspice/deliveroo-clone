@@ -1,18 +1,16 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView, Image } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 
 const AllergyScreen = () => {
   const navigation = useNavigation();
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
+
   return (
+  <SafeAreaView>
     <View>
-      <Text>AllergyScreen</Text>
+      <Image />
     </View>
+  </SafeAreaView>
   );
 };
 
