@@ -4,7 +4,8 @@ import { selectRestaurant } from "../features/restaurantSlice";
 import { XCircleIcon } from "react-native-heroicons/solid";
 import { TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
-import * as Progress from 'react-native-progress';
+import * as Progress from "react-native-progress";
+import MapView, { Marker } from "react-native-maps";
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
@@ -34,11 +35,33 @@ const DeliveryScreen = () => {
           </View>
 
           <Progress.Bar size={50} color="#00CCBB" indeterminate={true} />
-        <Text className="mt-3 text-gray-500">
+          <Text className="mt-3 text-gray-500">
             Your order at {restaurant.title} is being prepared
-        </Text>
+          </Text>
         </View>
       </SafeAreaView>
+
+      <MapView
+        initialRegion={{
+          latitude: restaurant.lat,
+          longitude: restaurant.long,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
+        }}
+        className="flex-1 -mt-10 z-0"
+        mapType="mutedStandard"
+      >
+        <Marker
+          coordinate={{
+            latitude: restaurant.lat,
+            longitude: restaurant.long,
+          }}
+          title={restaurant.title}
+          description={restaurant.short_description}
+          identifier="origin"
+          pinColor="#00CCBB"
+        />
+      </MapView>
     </View>
   );
 };
