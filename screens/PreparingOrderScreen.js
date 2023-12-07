@@ -9,7 +9,7 @@ const navigation = useNavigation();
 useEffect(() => {
     setTimeout(()=> {
         navigation.navigate("Delivery")
-    }, 4000)
+    }, 6000)
 },[])
 
 
