@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { selectRestaurant } from "../features/restaurantSlice";
 import { XCircleIcon } from "react-native-heroicons/solid";
 import { TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
+import * as Progress from 'react-native-progress';
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
@@ -15,7 +16,27 @@ const DeliveryScreen = () => {
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <XCircleIcon color="white" size={30} />
           </TouchableOpacity>
-          <Text>Order Help</Text>
+          <Text className="font-light text-white text-lg">Order Help</Text>
+        </View>
+
+        <View className="bg-white mx-5 my-2 rounded-md p-6 z-50 shadow-md">
+          <View className="flex-row justify-between">
+            <View>
+              <Text className="text-lg text-gray-400 ">Estimated Arrival</Text>
+              <Text className="text-4xl font-bold">45-55 Minutes</Text>
+            </View>
+            <Image
+              source={{
+                uri: "https://links.papareact.com/fls",
+              }}
+              className="h-20 w-20"
+            />
+          </View>
+
+          <Progress.Bar size={50} color="#00CCBB" indeterminate={true} />
+        <Text className="mt-3 text-gray-500">
+            Your order at {restaurant.title} is being prepared
+        </Text>
         </View>
       </SafeAreaView>
     </View>
