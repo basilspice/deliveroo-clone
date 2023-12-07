@@ -11,7 +11,7 @@ const FeaturedRow = ({ id, title, description }) => {
     sanityClient
       .fetch(
         `
-        *[_type == "featured" && _id==$id]{
+        *[_type == "featured" && _id == $id]{
           ...,
           restaurants[]->{
             ...,
@@ -45,17 +45,17 @@ const FeaturedRow = ({ id, title, description }) => {
         {/* RestaurantCards */}
         {restaurants?.map((restaurant) => (
           <RestaurantCard
-            key={restaurant._id}
-            _id={restaurant._id}
-            imgUrl={restaurant.image}
-            address={restaurant.address}
-            title={restaurant.name}
-            dishes={restaurant.dishes}
-            rating={restaurant.rating}
-            short_description={restaurant.short_description}
-            genre={restaurant.type?.name}
-            long={restaurant.long}
-            lat={restaurant.lat}
+          key={restaurant._id}
+          id={restaurant._id}
+          imgUrl={restaurant.image}
+          title={restaurant.name}
+          rating={restaurant.rating}
+          genre={restaurant.type?.name}
+          address={restaurant.address}
+          shortDescription={restaurant?.short_description}
+          dishes={restaurant.dishes}
+          long={restaurant.long}
+          lat={restaurant.lat}
           />
         ))}
       </ScrollView>

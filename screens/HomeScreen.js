@@ -70,14 +70,14 @@ const HomeScreen = () => {
           <MagnifyingGlassIcon size={20} color="gray" />
           <TextInput
             placeholder="Restaurants and cuisines"
-            inputMode="default"
+            keyboardType="default"
           />
         </View>
         <AdjustmentsVerticalIcon size={20} color="#00CCBB" />
       </View>
 
       {/* Body */}
-      <ScrollView>
+      <ScrollView className="bg-gray-100" contentContainerStyle={{paddingBottom: 100,}}>
         {/* Categories */}
         <Categories />
         {/* {Featured Rows} */}
@@ -85,11 +85,11 @@ const HomeScreen = () => {
         {featuredCategories?.map((category, index) => {
           return (
             <FeaturedRow
-              key={`${category.id}-${index}`}
-              id={category._id}
-              title={category.name}
-              description={category.short_description}
-            />
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category?.short_description}
+          />
           );
         })}
       </ScrollView>
