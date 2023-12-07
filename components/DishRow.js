@@ -13,7 +13,7 @@ import {
 const DishRow = ({ id, name, description, price, image }) => {
   const [isPressed, setIsPressed] = useState(false);
 
-  const items = useSelector((state) => selectBasketItemsWithId(state, id));
+  const items = useSelector((state) => selectBasketItemsWithId(state));
 
   const dispatch = useDispatch();
 
@@ -80,8 +80,11 @@ const DishRow = ({ id, name, description, price, image }) => {
           </View>
         </View>
       )}
+      
     </>
+    
   );
+  
 };
 
 export default DishRow;
