@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image } from "react-native";
+import { View, Text, SafeAreaView, Image, Linking } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { selectRestaurant } from "../features/restaurantSlice";
 import { XCircleIcon } from "react-native-heroicons/solid";
@@ -9,6 +9,18 @@ import MapView, { Marker } from "react-native-maps";
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
+
+  const onPressMobileNumberClick = (number) => {
+
+    let phoneNumber = '';
+    if (Platform.OS === 'android') {
+      phoneNumber = `tel:${number}`;
+    } else {
+      phoneNumber = `telprompt:${number}`;
+    }
+
+    Linking.openURL(phoneNumber);
+ }
 
   return (
     <View className=" bg-[#00CCBB] flex-1">
@@ -73,10 +85,15 @@ const DeliveryScreen = () => {
           <Text className="text-lg">Ricky</Text>
           <Text className="text-gray-400">Your Rider</Text>
         </View>
-<TouchableOpacity>
+        <TouchableOpacity 
+       onPress={() => {Linking.openURL('tel:281-330-8004');}} >
+       <Text  className="text-[#00CCBB] text-lg mr-5 font-bold">
+             Call  
+       </Text>
+   </TouchableOpacity>
 
-        <Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call</Text>
-</TouchableOpacity>
+
+
       </SafeAreaView>
     </View>
     

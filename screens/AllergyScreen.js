@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import * as Animatable from "react-native-animatable";
 import {useNavigation} from "@react-navigation/native";
 import {XCircleIcon} from "react-native-heroicons/solid"
-
+import {Linking} from 'react-native'
 const AllergyScreen = () => {
 
 const navigation = useNavigation();
