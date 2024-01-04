@@ -83,7 +83,7 @@ const DeliveryScreen = () => {
         />
         <View className="flex-1">
           <Text className="text-lg">Ricky</Text>
-          <Text className="text-gray-400">Your Rider</Text>
+          <Text className="text-gray-400">Your Delivery Driver</Text>
         </View>
         <TouchableOpacity 
        onPress={() => {Linking.openURL('tel:281-330-8004');}} >
