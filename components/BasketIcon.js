@@ -23,7 +23,7 @@ if (items.length === 0) return null
           View Basket
         </Text>
         <Text className="text-lg text-white font-extrabold">
-   <Text>${basketTotal}</Text>
+   <Text>${parseFloat(basketTotal).toFixed(2)}</Text>
         </Text>
       </TouchableOpacity>
     </View>

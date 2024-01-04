@@ -20,6 +20,8 @@ const BasketScreen = () => {
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const basketTotal = useSelector(selectBasketTotal);
   const dispatch = useDispatch();
+  const finalBasketTotal = basketTotal * .10 + 6.99;
+  const salesTax = basketTotal * 10;
 
   useEffect(() => {
     const groupedItems = items.reduce((results, item) => {
@@ -92,7 +94,8 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Subtotal</Text>
             <Text className="text-gray-400">
-              <Text>{basketTotal}</Text>
+              <Text>{parseFloat(basketTotal.toFixed(2))}</Text>
+              {/* parseFloat("10.547892").toFixed(2) */}
             </Text>
           </View>
 
@@ -106,7 +109,7 @@ const BasketScreen = () => {
           <View className="flex-row justify-between">
             <Text className="text-gray-400">Sales Tax</Text>
             <Text className="text-gray-400">
-              <Text>${basketTotal * 0.11}</Text>
+              <Text>${parseFloat(salesTax).toFixed(2)}</Text>
             </Text>
           </View>
 
@@ -114,7 +117,7 @@ const BasketScreen = () => {
             <Text>Total</Text>
             <Text className="font-extrabold">
               <Text className="extra-bold">
-                ${basketTotal * 0.11 + basketTotal + 6.99}
+                ${parseFloat(finalBasketTotal).toFixed(2)}
               </Text>
             </Text>
           </View>
