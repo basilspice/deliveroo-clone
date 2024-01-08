@@ -20,8 +20,8 @@ const BasketScreen = () => {
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const basketTotal = useSelector(selectBasketTotal);
   const dispatch = useDispatch();
-  const finalBasketTotal = basketTotal * .10 + 6.99;
-  const salesTax = basketTotal * 10;
+  const finalBasketTotal = basketTotal + basketTotal * .10 + 6.99;
+  const salesTax = basketTotal * .10;
 
   useEffect(() => {
     const groupedItems = items.reduce((results, item) => {
