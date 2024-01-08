@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.another.deliveroo.clone"
     },
     "android": {
       "package": "com.another.deliveroo.clone",
