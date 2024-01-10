@@ -1,18 +1,19 @@
 ## LIVE
 
-[Airbnb-Clone Live Site](https://property-renter.vercel.app/)
+[Google Play Store]()
+[Apple App Store]()
 
 ## About
 
-This app was made with the help of [Sonny Sangha](https://www.youtube.com/watch?v=AkEnidfZnCU)))
+This app was made with the help of [Sonny Sangha](https://www.youtube.com/watch?v=AkEnidfZnCU))
 
 
 
 This app uses the following:
--Expo
--React Native
--Tailwind CSS 
--Redux
+-Expo  
+-React Native  
+-Tailwind CSS   
+-Redux  
 
 
 ## How  It Works
