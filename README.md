@@ -4,12 +4,13 @@
 
 ## About
 
-This app was made with the help of [CODEWITHANTONIO](https://youtu.be/c_-b_isI4vg)
+This app was made with the help of [Sonny Sangha](https://www.youtube.com/watch?v=AkEnidfZnCU)))
 
-This app was made with Expo React Native
+
 
 This app uses the following:
-
+-Expo
+-React Native
 -Tailwind CSS 
 -Redux
 
